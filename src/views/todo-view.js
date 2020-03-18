@@ -55,7 +55,7 @@ class TodoView extends LitElement {
 
       <vaadin-radio-group>
       ${Object.values(VisibilityFilters).map(filter => html`
-        <vaadin-radio-button>${filter}</vaadin-radio-button>
+        <vaadin-radio-button value="${filter}">${filter}</vaadin-radio-button>
       `)}
     </vaadin-radio-group>
 
