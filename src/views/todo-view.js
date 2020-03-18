@@ -30,6 +30,9 @@ class TodoView extends LitElement {
 
   render() {
     return html`
+    <style>
+
+    </style>
       <div class="input-layout" @keyup="${this.shortcutListener}">
       <vaadin-text-field
       placeholder="Task"
@@ -110,6 +113,9 @@ class TodoView extends LitElement {
       this.task = '';
     }
   }
-}
+  createRenderRoot() {
+    return this;
+  };
+};
 
 customElements.define('todo-view', TodoView);
