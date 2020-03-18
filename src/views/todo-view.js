@@ -53,7 +53,11 @@ class TodoView extends LitElement {
         `)}
       </div>
 
-      <vaadin-radio-group>
+      <vaadin-radio-group
+        class="visibility-filters"
+        value="${this.filter}"
+        @value-changed="${this.filterChanged}"
+      >
       ${Object.values(VisibilityFilters).map(filter => html`
         <vaadin-radio-button value="${filter}">${filter}</vaadin-radio-button>
       `)}
@@ -61,6 +65,10 @@ class TodoView extends LitElement {
 
     `
   }
+
+  filterChanged(e) {
+    this.filter = e.target.value;
+  };
 
   updateTodoStatus(updatedTodo, complete) {
     this.todos = this.todos.map(todo => updatedTodo === todo ? { ...updatedTodo, complete } : todo);
