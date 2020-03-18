@@ -68,6 +68,10 @@ class TodoView extends LitElement {
     `
   }
 
+  clearCompleted() {
+    this.todos = this.todos.filter(todo => !todo.complete);
+  }
+
   filterChanged(e) {
     this.filter = e.target.value;
   };
