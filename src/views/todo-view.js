@@ -50,7 +50,7 @@ class TodoView extends connect(store)(LitElement) {
       <div class="input-layout" @keyup="${this.shortcutListener}">
       <vaadin-text-field
       placeholder="Task"
-      value="${this.task}"
+      value="${this.task || ''}"
       @change="${this.updateTask}"
       ></vaadin-text-field>
       <vaadin-button
