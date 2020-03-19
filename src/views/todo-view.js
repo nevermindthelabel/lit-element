@@ -6,8 +6,10 @@ import '@vaadin/vaadin-radio-button/vaadin-radio-group';
 import '@vaadin/vaadin-button';
 
 import { VisibilityFilters } from '../redux/reducer';
+import { connect } from 'pwa-helpers';
+import { store } from '../redux/store';
 
-class TodoView extends LitElement {
+class TodoView extends connect(store)(LitElement) {
 
   static get properties() {
     return {
@@ -17,11 +19,9 @@ class TodoView extends LitElement {
     }
   }
 
-  constructor() {
-    super();
-    this.todos = [];
-    this.filter = VisibilityFilters.SHOW_ALL;
-    this.task = '';
+  stateChanged(state) {
+    this.todos = state.todos;
+    this.filter = state.filter;
   }
 
   render() {
